@@ -1,0 +1,57 @@
+<html>
+  <head>
+    <script src="../libs/p5.js"></script>
+    <script src="../libs/p5.ImageProcessing.js"></script>
+    <link rel="stylesheet" href="../libs/bs.css">
+    <script src="../libs/jq.js"></script>
+    <script src="../libs/bs.js"></script>
+    <script>
+var img2;
+function preload(){
+    img2=loadImage("../car.jpg");
+}
+
+function setup() {
+   createCanvas(img2.width*2,img2.height); 
+   var newim=rgbToGray(img2);  
+   displayGray(threshold(122,newim));
+   image(img2,img2.width,0);
+}        
+    </script>
+  </head>
+  <body>     
+      
+      
+      <div class="col-sm-8 text-left"> 
+      <h1>Thresholding</h1>
+      <p>In many vision applications, it is useful to be able to separate out the regions of the image corresponding to objects in which we are interested in. Thresholding often provides an easy and useful way to perform this segmentation, on the grounds of the different intensities or colors in the foreground and background areas of an image.
+      </p>
+      <hr>
+      
+      <div class="well well-sm"><b><i>threshold(tvalue,image) </i></b> 
+          </br> tvalue : value between [0,255] 
+          </br> image : Gray image</div>
+      
+      <div class="col-sm-5 text-left">
+       <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">View Code</button>
+       <div id="demo" class="collapse">
+<p><font color="blue" size="4">
+var img2;</br>
+function <b> preload() </b>{</br>
+    img2=loadImage("car.jpg");</br>
+}</br>
+</br>
+function <b>setup()</b> {</br>
+   createCanvas(img2.width*2,img2.height);</br> 
+   var newim=rgbToGray(img2);  </br>
+   displayGray(threshold(122,newim));</br>
+   image(img2,img2.width,0);</br>
+}</br> </font>        
+</p>              
+       </div>
+      </div>
+     
+      <a href="../index.html"><button type="button" class="btn btn-success">Home</button></a> 
+      </div> 
+  </body>
+</html>

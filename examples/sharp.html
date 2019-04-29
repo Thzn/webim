@@ -1,0 +1,66 @@
+<html>
+  <head>
+    <script src="../libs/p5.js"></script>
+    <script src="../libs/p5.ImageProcessing.js"></script>
+    <link rel="stylesheet" href="../libs/bs.css">
+    <script src="../libs/jq.js"></script>
+    <script src="../libs/bs.js"></script>
+    <script>
+var img2;
+function preload(){
+    img2=loadImage("../moon.jpg");
+}
+
+function setup() {
+   createCanvas(img2.width*2,img2.height); 
+   var newim=rgbToGray(img2);
+   var edges=edge(newim);
+   
+   for(var x=0;x<newim.pixels.length;x++){
+       newim.pixels[x]=newim.pixels[x]+edges.pixels[x];
+   } 
+   
+   displayGray(newim);
+   image(img2,img2.width,0);
+}        
+    </script>
+  </head>
+  <body>     
+      
+      
+      <div class="col-sm-8 text-left"> 
+      <h1>Sharpening</h1>
+      <p>Image sharpening can be used to extract features of the smoothened image. Firstly, it uses the inbuilt edge detection methods to identify the edges of the image, and then it uses the original image for sharpening. The resulting image will be more sharpened depending on the edge detector used.
+      </p>
+      <hr>
+      
+      <div class="col-sm-5 text-left">
+       <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">View Code</button>
+       <div id="demo" class="collapse">
+<p><font color="blue" size="4">
+var img2;</br>
+function <b>preload()</b>{</br>
+    img2=loadImage("coin.jpg");</br>
+}</br>
+
+function <b>setup() </b>{</br>
+   createCanvas(img2.width*2,img2.height);</br> 
+   var newim=rgbToGray(img2);</br>
+   var edges=edge(newim);</br>
+   </br>
+   for(var x=0;x<newim.pixels.length;x++){</br>
+       newim.pixels[x]=newim.pixels[x]+edges.pixels[x];</br>
+   } 
+   </br>
+   displayGray(newim);</br>
+   image(img2,img2.width,0);</br>
+}   
+</br></font>        
+</p>              
+       </div>
+      </div>
+     
+      <a href="../index.html"><button type="button" class="btn btn-success">Home</button></a> 
+      </div> 
+  </body>
+</html>

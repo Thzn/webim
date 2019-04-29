@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <script src="../libs/p5.js"></script>
+    <script src="../libs/p5.ImageProcessing.js"></script>
+    <link rel="stylesheet" href="../libs/bs.css">
+    <script src="../libs/jq.js"></script>
+    <script src="../libs/bs.js"></script>
+    <script>
+var img2;
+function preload(){
+    img2=loadImage("../coin.jpg");
+}
+
+function setup() {
+   createCanvas(img2.width*2,img2.height); 
+   var newim=rgbToGray(img2);  
+   displayGray(edge(newim));
+   image(img2,img2.width,0);
+}        
+    </script>
+  </head>
+  <body>     
+      
+      
+      <div class="col-sm-8 text-left"> 
+      <h1>Edge Detection</h1>
+      <p>Detected edges of an image can be used to identify important regions of the image, and it can be used for image sharpening as well. This method uses the first-order difference technique for calculating the edges of an image. 
+      </p>
+      <hr>
+      
+      <div class="well well-sm"><b><i>invert(image)</i></b> </br> image : Gray image</div>
+      
+      <div class="col-sm-5 text-left">
+       <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">View Code</button>
+       <div id="demo" class="collapse">
+<p><font color="blue" size="4">
+var img2;</br>
+function <b>preload()</b>{</br>
+    img2=loadImage("coin.jpg");</br>
+}</br>
+
+function <b>setup()</b>{</br>
+   createCanvas(img2.width*2,img2.height);</br> 
+   var newim=rgbToGray(img2);  </br>
+   displayGray(edge(newim));</br>
+   image(img2,img2.width,0);</br>
+}</br></font>        
+</p>              
+       </div>
+      </div>
+     
+      <a href="../index.html"><button type="button" class="btn btn-success">Home</button></a> 
+      </div> 
+  </body>
+</html>
